@@ -140,28 +140,6 @@ Running 10 real signatures...
   Max sign time: 3.53 s
   Throughput: 0.32 signatures/second
 
-======================================================================
-TEST 6: Algorithm Comparison (Simulated)
-======================================================================
-
-Comparison with Other Signature Schemes:
---------------------------------------------------------------------------------
-Algorithm       KeyGen       Sign         Verify       Sig Size     Q-Safe  
---------------------------------------------------------------------------------
-RSA-2048        850 ms       12 ms        2 ms         256 B        ❌       
-ECDSA-P256      15 ms        8 ms         18 ms        64 B         ❌       
-Ed25519         2 ms         1 ms         3 ms         64 B         ❌       
-Dilithium2      245 ms       128 ms       89 ms        2,420 B      ✅       
-Falcon-512      180 ms       95 ms        65 ms        690 B        ✅       
-SPHINCS+-128s   35 ms        18,000 ms    750 ms       8,080 B      ✅       
---------------------------------------------------------------------------------
-
-Key Advantages of Dilithium:
-  ✓ Quantum-safe security (post-quantum cryptography)
-  ✓ Balanced performance (140x faster signing than SPHINCS+)
-  ✓ Moderate signature size
-  ✓ NIST standardized (selected for standardization)
-  ✓ Based on lattice cryptography (well-studied)
 
 ======================================================================
 ALL TESTS COMPLETED
