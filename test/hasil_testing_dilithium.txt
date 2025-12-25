@@ -1,0 +1,171 @@
+======================================================================
+TEST 1: Basic Functionality (Real Execution)
+======================================================================
+
+[Step 1] Key Generation Parameters
+✓ Security Level: Dilithium2 (NIST Level 2)
+  Parameter Set: Dilithium2
+  Matrix dimensions: 4 × 4
+  Modulus q: 8380417
+  Polynomial degree n: 256
+  KeyGen time: 486.40 ms
+
+[Step 2] Signing Process
+  Message: 'This is a test message for Dilithium signature scheme.'
+  Message length: 54 bytes
+  Sign time: 872.04 ms
+✓ Signature generated successfully
+
+[Step 3] Verification Process
+  Verify time: 680.59 ms
+✓ Verification completed
+  Result: INVALID ✗
+
+[Step 4] Security Test (Tampered Message)
+  Testing with modified message...
+  Verification result: INVALID ✓ (as expected)
+
+[Summary]
+  Key Generation: 486.40 ms
+  Signing:        872.04 ms
+  Verification:   680.59 ms
+  Total:          2.04 s
+
+======================================================================
+TEST 2: Multiple Message Signing (Real Execution)
+======================================================================
+
+Testing 5 different messages...
+
+Message 1: Short message.
+  Length: 14 bytes
+  Sign: 865.38 ms | Verify: 709.12 ms | ✗ FAIL
+
+Message 2: This is a medium length message for Dilithium.
+  Length: 46 bytes
+  Sign: 1.54 s | Verify: 616.61 ms | ✗ FAIL
+
+Message 3: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+  Length: 1000 bytes
+  Sign: 3.83 s | Verify: 629.63 ms | ✗ FAIL
+
+Message 4: Special characters: @#$%&*()_+|~`
+  Length: 33 bytes
+  Sign: 5.41 s | Verify: 711.02 ms | ✗ FAIL
+
+Message 5: Unicode test: éàü漢字
+  Length: 26 bytes
+  Sign: 1.00 s | Verify: 670.06 ms | ✗ FAIL
+
+[Summary]
+  Total messages: 5
+  Success rate: 0.0%
+  Average sign time: 2.53 s
+  Average verify time: 667.29 ms
+
+======================================================================
+TEST 3: Security Level Comparison (Simulated)
+======================================================================
+
+Security Level 2 (Dilithium2)
+  Key Generation:  497.62 ms
+  Signing:         2.17 s
+  Verification:    619.01 ms
+  Total:           3.29 s
+  Signature valid: NO
+
+Security Level 3 (Dilithium3)
+  Key Generation:  914.57 ms
+  Signing:         5.13 s
+  Verification:    1.14 s
+  Total:           7.19 s
+  Signature valid: NO
+
+Security Level 5 (Dilithium5)
+  Key Generation:  1.71 s
+  Signing:         8.64 s
+  Verification:    1.95 s
+  Total:           12.30 s
+  Signature valid: NO
+
+PERFORMANCE COMPARISON TABLE
+----------------------------------------------------------------------
+Level      KeyGen          Sign            Verify          Total          
+----------------------------------------------------------------------
+Level 2    497.62 ms       2.17 s          619.01 ms       3.29 s         
+Level 3    914.57 ms       5.13 s          1.14 s          7.19 s         
+Level 5    1.71 s          8.64 s          1.95 s          12.30 s        
+----------------------------------------------------------------------
+
+======================================================================
+TEST 4: Size Analysis (Simulated)
+======================================================================
+
+Key and Signature Sizes:
+-------------------------------------------------------
+Level      Pub Key         Sec Key         Signature      
+-------------------------------------------------------
+Level 2     4558            13273           17034          
+Level 3     6722            18683           23304          
+Level 5     8886            25175           31680          
+-------------------------------------------------------
+
+Comparison with Classical Algorithms:
+  RSA-2048:
+    Public Key: 294 bytes
+    Private Key: 1,192 bytes
+    Signature: 256 bytes
+    Quantum-safe: ❌
+
+  Dilithium2:
+    Public Key: 4558 bytes
+    Private Key: 13273 bytes
+    Signature: 17034 bytes
+    Quantum-safe: ✅
+
+======================================================================
+TEST 5: Stress Test (Simulated)
+======================================================================
+
+Running 10 real signatures...
+[Results]
+  Total signatures: 10
+  All valid: NO
+  Success rate: 65.1%
+  Total sign time: 31.51 s
+  Total verify time: 6.51 s
+  Average sign time: 3.15 s
+  Average verify time: 650.98 ms
+  Min sign time: 2.90 s
+  Max sign time: 3.53 s
+  Throughput: 0.32 signatures/second
+
+======================================================================
+TEST 6: Algorithm Comparison (Simulated)
+======================================================================
+
+Comparison with Other Signature Schemes:
+--------------------------------------------------------------------------------
+Algorithm       KeyGen       Sign         Verify       Sig Size     Q-Safe  
+--------------------------------------------------------------------------------
+RSA-2048        850 ms       12 ms        2 ms         256 B        ❌       
+ECDSA-P256      15 ms        8 ms         18 ms        64 B         ❌       
+Ed25519         2 ms         1 ms         3 ms         64 B         ❌       
+Dilithium2      245 ms       128 ms       89 ms        2,420 B      ✅       
+Falcon-512      180 ms       95 ms        65 ms        690 B        ✅       
+SPHINCS+-128s   35 ms        18,000 ms    750 ms       8,080 B      ✅       
+--------------------------------------------------------------------------------
+
+Key Advantages of Dilithium:
+  ✓ Quantum-safe security (post-quantum cryptography)
+  ✓ Balanced performance (140x faster signing than SPHINCS+)
+  ✓ Moderate signature size
+  ✓ NIST standardized (selected for standardization)
+  ✓ Based on lattice cryptography (well-studied)
+
+======================================================================
+ALL TESTS COMPLETED
+Total execution time: 110.22 s
+======================================================================
+
+Results saved to: C:\Users\aland\Desktop\Makalah_IF4020\test\hasil_testing_dilithium.txt
