@@ -4,13 +4,12 @@
 
 ## 📔 Deskripsi Program
 
-**Dilithium** adalah program simulasi dan evaluasi algoritma tanda tangan digital post-kuantum **CRYSTALS-Dilithium** sesuai standar NIST. Program ini dibuat untuk Makalah IF4020 Kriptografi dengan mengimplementasikan:
+Program simulasi dan evaluasi algoritma tanda tangan digital post-kuantum **CRYSTALS-Dilithium** sesuai standar NIST. Program ini dibuat untuk Makalah IF4020 Kriptografi dengan mengimplementasikan:
 
 - **CRYSTALS-Dilithium** — Skema tanda tangan digital berbasis lattice (NIST PQC)
 - **Key Generation, Signing, Verification** — Proses pembuatan kunci, penandatanganan, dan verifikasi tanda tangan
 - **Tiga Level Keamanan** — Mendukung Dilithium2, Dilithium3, dan Dilithium5
 - **Analisis Performa & Ukuran** — Pengujian kecepatan dan ukuran kunci/tanda tangan, serta perbandingan dengan algoritma klasik dan post-quantum lain
-- **Python murni** — Implementasi edukatif, mudah dipahami, dan dapat dijalankan tanpa library eksternal khusus
 
 ## 📟 Tech Stack
 
